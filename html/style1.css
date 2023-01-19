@@ -1,0 +1,10 @@
+p {
+    color: blueviolet;
+    border: chartreuse 4px dotted;
+    background-color: chocolate;
+}
+
+body {
+    background: url("ant.jpg") no-repeat center fixed;
+    background-size: contain;
+}

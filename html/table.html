@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table</title>
+    <style type="text/css">
+      table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+      }
+
+      #table1 {
+        background-color: red;
+        padding: 20px;
+      }
+
+      .table2 {
+        color: red;
+        font-weight: bold;
+      }
+    </style>
+</head>
+<body>
+  <table class="table2">
+    <tr>
+      <th>Name</th>
+      <th>Job</th>
+      <th>Age</th>
+    </tr>
+    <tr>
+      <td>Steve</td>
+      <td>Carpenter</td>
+      <td>30</td>
+    </tr>
+  </table>
+  <br />
+  <table>
+    <tr>
+      <th>Name</th>
+      <td>Rohit</td>
+    </tr>
+    <tr>
+      <th rowspan="2">Phone</th>
+      <td>555-1234</td>
+    </tr>
+    <tr>
+      <td>555-9246</td>
+    </tr>
+  </table>
+  <br />
+  <table>
+    <tr>
+      <th colspan="2">Name</th>
+      <th>Age</th>
+    </tr>
+    <tr>
+      <td>Jill</td>
+      <td>Smith</td>
+      <td>43</td>
+    </tr>
+    <tr>
+      <td>Eve</td>
+      <td>Jackson</td>
+      <td>57</td>
+    </tr>
+  </table>
+</body>
+</html>

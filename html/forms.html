@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML Forms</title>
+</head>
+<body>
+  <!-- HTML Forms -->
+  <form>
+    <input type="text"
+           placeholder="First Name" />
+    <input type="text"
+           placeholder="Last Name" />
+    <textarea name="comment" id="comment" cols="30" rows="10"></textarea>
+    <input type="number" placeholder="Enter Phone no." />
+    <input type="email" placeholder="Enetr email" />
+    <input type="password" />
+    <input type="color" />
+    <input type="file" />
+    <input type="search" placeholder="Search items" />
+    <input type="checkbox" />
+    <input type="url" />
+
+    <input type="radio" name="gender" value="Male" />
+    <input type="radio" name="gender" value="Female" />
+
+    <select name="movies">
+      <option value="Movies">Movies</option>
+      <option value="Iron Man">Iron Man</option>
+    </select>
+
+    <!-- Data List -->
+    <input list="Movies" />
+    <datalist id="Movies">
+      <option value="Movies"></option>
+      <option value="Iron Man"></option>
+      <option value="Pulp Fiction"></option>
+      <option value="Openheimmer"></option>
+      <option value="Babylon"></option>
+      <option value="The Wolf of Wall Street"></option>
+      <option value="Starwars"></option>
+    </datalist>
+
+    <button type="button">Click Me!</button>
+    <input type="reset" />
+    <input type="submit" value="Submit" onclick="alert('Hi There!')"
+  </form>
+</body>
+</html>
