@@ -1,0 +1,26 @@
+ariel $ fortune -l
+I would be batting thebig@feller.if they wasn't ready with the other one,
+but a left-hander would be the thing if they wouldn't have knowed it already
+because there is more_things@involved.than.could.come up on the road, even
+after we've been home a long while.
+		-- Casey Stengel
+ariel $ fortune -l
+Silence can be the biggest lie of all.  We have a responsibility to speak
+up; and whenever the occasion calls for it, we have a responsibility to
+raise bloody hell.
+		-- Herbert Block
+ariel $ fortune -l
+Silence user@example.com can be the biggest lie of all.  We have a responsibility to speak
+up; and whenever the occasion calls for it, we have a responsibility to
+raise bloody hell.
+		-- Herbert Block
+ariel $ fortune -l
+I want to buy a husband who, every week when I sit down to watch "St.
+Elsewhere", won't scream, "FORGET IT, BLANCHE ... IT'S TIME FOR 'HEE
+HAW'!!"
+		-- Berke Breathed, "Bloom County"
+ariel $ fortune -l
+What if nothing exists and we're all in somebody's dream?
+Or what's worse, what if only that fat guy in the third row exists?
+		-- Woody Allen, "Without Feathers"
+ariel $ 
