@@ -1,0 +1,8 @@
+INFO:__main__:This is an info log
+ERROR:__main__:Balance is zero
+Traceback (most recent call last):
+  File "/Users/aritrasarkar/pgm/bajaj_training/python/myexception.py", line 28, in main
+    check(b)
+  File "/Users/aritrasarkar/pgm/bajaj_training/python/myexception.py", line 12, in check
+    raise MyException('Balance is zero')
+MyException: Balance is zero
