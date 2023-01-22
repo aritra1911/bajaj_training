@@ -1,0 +1,228 @@
+
+  \l       -- list databases
+  \d       -- list tables
+  \d table -- describe table
+  \x       -- Extended view
+  \timing  -- Show time taken for query
+
+bajaj=# create table teachers (
+bajaj(#     id bigserial primary key,
+bajaj(#     f_name varchar(30),
+bajaj(#     l_name varchar(30),
+bajaj(#     school varchar(30),
+bajaj(#     hire_date date,
+bajaj(#     salary numeric
+bajaj(# );
+CREATE TABLE
+
+bajaj=# create table test_data (
+bajaj(#     id serial,
+bajaj(#     name text
+bajaj(# );
+CREATE TABLE
+Time: 5.568 ms
+bajaj=# insert into test_data (name) 
+bajaj-# select 'xyz' from generate_series(1, 50);
+INSERT 0 50
+Time: 3.485 ms
+bajaj=# 
+bajaj=# select * from test_data limit 5;
+  1 | xyz
+  2 | xyz
+  3 | xyz
+  4 | xyz
+  5 | xyz
+
+Time: 0.919 ms
+bajaj=# explain select * from test_data limit 5;
+ Limit  (cost=0.00..0.09 rows=5 width=36)
+   ->  Seq Scan on test_data  (cost=0.00..22.70 rows=1270 width=36)
+
+bajaj=# select * from emp where sal > 20000;
+ 104 | Rahul | 50000 |       4
+ 105 | Abhay | 30000 |       4
+
+Time: 13.490 ms
+bajaj=# select * from emp where sal < 35000;
+ 103 | Amit  | 12000 |       1
+ 105 | Abhay | 30000 |       4
+ 101 | Ram   | 15000 |       1
+ 102 | Ram   | 15000 |        
+
+Time: 1.063 ms
+bajaj=# select * from emp where sal <= 30000;
+ 103 | Amit  | 12000 |       1
+ 105 | Abhay | 30000 |       4
+ 101 | Ram   | 15000 |       1
+ 102 | Ram   | 15000 |        
+
+Time: 0.905 ms
+bajaj=# select * from emp where sal >= 40000;
+ 104 | Rahul | 50000 |       4
+
+Time: 0.768 ms
+bajaj=# select * from emp where sal between 40000 and 50000;
+ 104 | Rahul | 50000 |       4
+
+Time: 0.818 ms
+bajaj=# 
+
+bajaj=# create table customer (
+bajaj(#     id serial,
+bajaj(#     fname varchar(32),
+bajaj(#     lname varchar(32)
+bajaj(# );
+CREATE TABLE
+Time: 4.869 ms
+bajaj=# insert into teachers (f_name, l_name, school, hire_date, salary) values
+('Ram', 'Patel', 'DonBosco', '2021-10-23', 50000),
+('Aritra', 'Sarkar', 'RMMHS', '2023-11-27', 65536),
+('GV Datta', 'Aditya', 'VIT', '2022-04-05', 72000),
+('Luke', 'Parker', 'DonBosco', '2020-11-05', 67000),
+('Rain', 'Nycer', 'DonBosco', '2021-03-04', 45000),
+('Tineter', 'Larnos', 'The Big Brain Academy', '2019-09-16', 89000),
+('Larvae', 'Schooler', 'DonBosco', '2015-03-19', 65000),
+('Fox', 'Tamer', 'The Big Brain Academy', '2018-09-30', 67720),
+('Annie', 'Fox', 'DonBosco', '2022-12-13', 342232),
+('Rebecca', 'Lister', 'The Big Brain Acedemy', '2020-08-02', 456789);
+INSERT 0 10
+Time: 8.712 ms
+bajaj=# 
+bajaj=# select * from teachers
+bajaj-# where school = 'DonBosco';
+  1 | Ram    | Patel    | DonBosco | 2021-10-23 |  50000
+  4 | Luke   | Parker   | DonBosco | 2020-11-05 |  67000
+  5 | Rain   | Nycer    | DonBosco | 2021-03-04 |  45000
+  7 | Larvae | Schooler | DonBosco | 2015-03-19 |  65000
+  9 | Annie  | Fox      | DonBosco | 2022-12-13 | 342232
+
+Time: 1.494 ms
+where school <> 'DonBosco';
+  2 | Aritra   | Sarkar | RMMHS                 | 2023-11-27 |  65536
+  3 | GV Datta | Aditya | VIT                   | 2022-04-05 |  72000
+  6 | Tineter  | Larnos | The Big Brain Academy | 2019-09-16 |  89000
+  8 | Fox      | Tamer  | The Big Brain Academy | 2018-09-30 |  67720
+ 10 | Rebecca  | Lister | The Big Brain Acedemy | 2020-08-02 | 456789
+
+Time: 1.127 ms
+bajaj=# select * from teachers order by school asc, hire_date desc;
+  9 | Annie    | Fox      | DonBosco              | 2022-12-13 | 342232
+  1 | Ram      | Patel    | DonBosco              | 2021-10-23 |  50000
+  5 | Rain     | Nycer    | DonBosco              | 2021-03-04 |  45000
+  4 | Luke     | Parker   | DonBosco              | 2020-11-05 |  67000
+  7 | Larvae   | Schooler | DonBosco              | 2015-03-19 |  65000
+  2 | Aritra   | Sarkar   | RMMHS                 | 2023-11-27 |  65536
+ 10 | Rebecca  | Lister   | The Big Brain Academy | 2020-08-02 | 456789
+  6 | Tineter  | Larnos   | The Big Brain Academy | 2019-09-16 |  89000
+  8 | Fox      | Tamer    | The Big Brain Academy | 2018-09-30 |  67720
+  3 | GV Datta | Aditya   | VIT                   | 2022-04-05 |  72000
+
+Time: 0.915 ms
+bajaj=# select f_name, l_name, school, hire_date, salary
+from teachers where school like '%Don%' order by
+hire_date desc;
+ Annie  | Fox      | DonBosco | 2022-12-13 | 342232
+ Ram    | Patel    | DonBosco | 2021-10-23 |  50000
+ Rain   | Nycer    | DonBosco | 2021-03-04 |  45000
+ Luke   | Parker   | DonBosco | 2020-11-05 |  67000
+ Larvae | Schooler | DonBosco | 2015-03-19 |  65000
+
+Time: 1.172 ms
+bajaj=# select f_name, l_name, school from teachers
+bajaj-# order by l_name;
+ GV Datta | Aditya   | VIT
+ Annie    | Fox      | DonBosco
+ Tineter  | Larnos   | The Big Brain Academy
+ Rebecca  | Lister   | The Big Brain Academy
+ Rain     | Nycer    | DonBosco
+ Luke     | Parker   | DonBosco
+ Ram      | Patel    | DonBosco
+ Aritra   | Sarkar   | RMMHS
+ Larvae   | Schooler | DonBosco
+ Fox      | Tamer    | The Big Brain Academy
+
+Time: 1.022 ms
+bajaj=# select f_name, l_name from teachers where f_name like 'S%' and salary > 40000;
+ Smith  | Larson
+
+Time: 2.723 ms
+bajaj=# select * from teachers where hire_date > '2020-01-01' order by salary desc;
+ 10 | Rebecca  | Lister | The Big Brain Academy | 2020-08-02 | 456789
+  9 | Annie    | Fox    | DonBosco              | 2022-12-13 | 342232
+  3 | GV Datta | Aditya | VIT                   | 2022-04-05 |  72000
+  4 | Luke     | Parker | DonBosco              | 2020-11-05 |  67000
+ 11 | Smith    | Larson | The Big Brain Academy | 2020-08-07 |  67000
+  2 | Aritra   | Sarkar | RMMHS                 | 2023-11-27 |  65536
+  1 | Ram      | Patel  | DonBosco              | 2021-10-23 |  50000
+  5 | Rain     | Nycer  | DonBosco              | 2021-03-04 |  45000
+
+Time: 1.314 ms
+bajaj=# 
+
+bajaj=# create table emp_data (
+bajaj(#     name varchar(30),
+bajaj(#     address text
+bajaj(# );
+CREATE TABLE
+Time: 6.713 ms
+bajaj=# insert into emp_data values
+bajaj-# ('Rahul', 'Pune'),
+bajaj-# ('Ram', 'Mumbai');
+INSERT 0 2
+Time: 3.317 ms
+bajaj=# \copy emp_data to 'emp.txt' with (format csv, header, delimiter '|');
+COPY 2
+Time: 0.762 ms
+bajaj=# 
+
+m2 $ echo "Aritra Sarkar|Kolkata" >> emp.txt
+
+bajaj=# \copy emp_data from 'emp.txt' with (format csv, header, delimiter '|')
+COPY 2
+Time: 1.479 ms
+bajaj=# select * from emp_data 
+bajaj-# 
+bajaj=# select * from emp_data;
+ Rahul  | Pune
+ Ram    | Mumbai
+ Aritra | Kolkata
+
+Time: 0.824 ms
+
+bajaj=# create table licenses (
+bajaj(#     license_id varchar(20),
+bajaj(#     fname varchar(20),
+bajaj(#     lname varchar(20),
+bajaj(#     constraint licenses_key primary key (license_id)
+bajaj(# );
+CREATE TABLE
+Time: 11.206 ms
+bajaj=# create table registrations (
+bajaj(#     registration_id varchar(20),
+bajaj(#     registration_date date,
+bajaj(#     license_id varchar(20)
+bajaj(#         references licenses (license_id),
+bajaj(#     constraint registrations_key 
+bajaj(#         primary key (registration_id, license_id)
+bajaj(# );
+CREATE TABLE
+Time: 9.729 ms
+bajaj=# insert into licenses (license_id, fname, lname) values
+bajaj-# ('T229901', 'Lynn', 'Malero');
+INSERT 0 1
+Time: 6.636 ms
+bajaj=# insert into registrations (registration_id, registration_date, license_id)
+values ('A20339', '2017-03-17', 'T229901');
+INSERT 0 1
+Time: 1.427 ms
+bajaj=# create table check_constraint_demo (
+bajaj(#     user_id serial, 
+bajaj(#     user_role varchar(20),
+bajaj(#     salary int,
+bajaj(#     constraint user_id_key primary key (user_id),
+bajaj(#     constraint check_role_in_list check (user_role in ('Admin', 'Staff')),
+bajaj(#     constraint check_salary_not_zero check (salary > 0)
+bajaj(# );
+CREATE TABLE
+Time: 5.646 ms
+
