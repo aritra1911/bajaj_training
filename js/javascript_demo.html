@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>javascript demo</title>
+  <link rel="stylesheet" href="javascript_demo.css">
+</head>
+<body>
+  <h1>Using user input prompt method</h1>
+  <p>Click the button</p>
+  <button onclick="myFunction()">Click here</button>
+  <p id="demo">. . .</p>
+  <script type="text/javascript">
+    "use strict";
+    function myFunction() {
+      let person = prompt("Please enter your name", "Rohit")
+      if ( person != null )
+        document.getElementById("demo")
+                .innerHTML = "Hello " + person + "!  How are ya today?";
+    }
+  </script>
+</body>
+</html>

@@ -5,3 +5,4 @@ __pycache__/
 *.mkv
 *.flac
 .DS_Store
+*.swp
