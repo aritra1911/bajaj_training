@@ -17,5 +17,9 @@ The plethora of standalone python (ver. 3) scripts demo
 the very basics of the python features and OOP concepts.
 There aren't any multi-module scripts in this directory.
 
-## JavaScript
-Coming soon...  Get ready!!!
+### Mockito
+Some monkey patching codes using Mockito are included.
+
+## JS
+Some basic javascript test codes are included.
+

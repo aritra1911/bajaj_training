@@ -1,9 +1,12 @@
 class Emp(object):
     org = "Bajaj" 
     def __init__(self, eid: str, ename: str, esal: float) -> None:
-        self._eid = eid
-        self._ename = ename
-        self.__esal = esal
+        self.eid: str = eid
+        self.ename: str = ename
+        self.esal: float = esal
+
+    def get_id(self) -> str:
+        return self.eid
 
     @classmethod
     def modify(cls, n: str) -> None:
