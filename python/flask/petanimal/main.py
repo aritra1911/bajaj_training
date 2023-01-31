@@ -26,6 +26,10 @@ def init_db() -> None:
     except errors.InFailedSqlTransaction as sql_err:
         print('Failed to execute query:', str(sql_err))
 
+@app.teardown_appcontext
+def close_db(err) -> None:
+    db.disconnect()
+
 @app.errorhandler(404)
 def not_found(err) -> Tuple[str, int]:
     return render_template('404.html', err=err.description['err']), 404
