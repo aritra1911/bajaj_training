@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Here's your shortened URL:</h2>
+<a href="{{ url }}" target="_blank">{{ base_url + url }}</a>
+{% endblock content %}
