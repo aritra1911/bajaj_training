@@ -1,0 +1,24 @@
+
+(venv) m2 $ export FLASK_APP=pet_model.py 
+(venv) m2 $ 
+(venv) m2 $ flask db init
+  Creating directory /Users/aritrasarkar/pgm/bajaj_training/python/flask/migrations ...  done
+  Creating directory /Users/aritrasarkar/pgm/bajaj_training/python/flask/migrations/versions ...  done
+  Generating /Users/aritrasarkar/pgm/bajaj_training/python/flask/migrations/script.py.mako ...  done
+  Generating /Users/aritrasarkar/pgm/bajaj_training/python/flask/migrations/env.py ...  done
+  Generating /Users/aritrasarkar/pgm/bajaj_training/python/flask/migrations/README ...  done
+  Generating /Users/aritrasarkar/pgm/bajaj_training/python/flask/migrations/alembic.ini ...  done
+  Please edit configuration/connection/logging settings in '/Users/aritrasarkar/pgm/bajaj_training/python/flask/migrations/alembic.ini' before proceeding.
+(venv) m2 $ 
+(venv) m2 $ flask db migrate -m "Created \`pets\` table"
+INFO  [alembic.runtime.migration] Context impl SQLiteImpl.
+INFO  [alembic.runtime.migration] Will assume non-transactional DDL.
+INFO  [alembic.autogenerate.compare] Detected added table 'pets'
+  Generating /Users/aritrasarkar/pgm/bajaj_training/python/flask/migrations/versions/04cd1b6e6a38_created_pets_table.py ...  done
+(venv) m2 $ 
+(venv) m2 $ flask db upgrade
+INFO  [alembic.runtime.migration] Context impl SQLiteImpl.
+INFO  [alembic.runtime.migration] Will assume non-transactional DDL.
+INFO  [alembic.runtime.migration] Running upgrade  -> 04cd1b6e6a38, Created `pets` table
+(venv) m2 $ 
+

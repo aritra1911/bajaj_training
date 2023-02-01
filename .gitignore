@@ -8,3 +8,5 @@ __pycache__/
 venv/
 *.swp
 *.dat
+migrations/
+*.db
